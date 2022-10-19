@@ -1,8 +1,8 @@
 FROM python2.7
 
 # Install samba
-RUN apt-get --no-cache --no-progress upgrade && \
-    apt-get --no-cache --no-progress add bash samba shadow tini tzdata && \
+RUN apt-get upgrade && \
+    apt-get install bash samba shadow tini tzdata && \
     addgroup -S smb && \
     adduser -S -D -H -h /tmp -s /sbin/nologin -G smb -g 'Samba User' smbuser &&\
     file="/etc/samba/smb.conf" && \
